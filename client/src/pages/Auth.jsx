@@ -3,6 +3,8 @@ import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true); // Toggle between Login/Signup
   const [formData, setFormData] = useState({ username: "", email: "", password: "" });
@@ -19,7 +21,7 @@ const Auth = () => {
     
     try {
       // NOTE: Make sure your backend URL is correct
-      const res = await axios.post(`http://localhost:5000/api/auth${endpoint}`, formData);
+      const res = await axios.post(`${BACKEND_URL}/api/auth${endpoint}`, formData);
       
       // Save user to context
       login(res.data);

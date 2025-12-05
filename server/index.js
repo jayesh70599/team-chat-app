@@ -18,7 +18,6 @@ const allowedOrigins = [
   process.env.CLIENT_URL // We will set this on Render later
 ];
 
-// Update Socket.io CORS as well
 
 
 const app = express();
